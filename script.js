@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".submenu-toggle").forEach((button) => {
     button.addEventListener("click", () => {
       const parent = button.closest(".has-submenu");
+      if (!parent) return;
       const open = parent.classList.toggle("is-open");
       button.setAttribute("aria-expanded", String(open));
     });
@@ -40,4 +41,52 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const injectLiveGraphics = () => {
+    const selectors = [
+      ".hero",
+      ".page-hero",
+      ".dark-section",
+      ".newsletter-section",
+      ".support-strip",
+      ".site-footer"
+    ];
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    selectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((section) => {
+        if (section.querySelector(".section-video-bg")) return;
+        section.classList.add("has-live-graphic");
+
+        const bg = document.createElement("div");
+        bg.className = "section-video-bg";
+        bg.setAttribute("aria-hidden", "true");
+
+        if (!reducedMotion) {
+          const video = document.createElement("video");
+          video.autoplay = true;
+          video.muted = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.setAttribute("playsinline", "");
+          video.setAttribute("preload", "auto");
+
+          const source = document.createElement("source");
+          source.src = "assets/safr-live-graphic.mp4";
+          source.type = "video/mp4";
+          video.appendChild(source);
+          bg.appendChild(video);
+        }
+
+        const overlay = document.createElement("div");
+        overlay.className = "section-video-overlay";
+        bg.appendChild(overlay);
+
+        section.prepend(bg);
+      });
+    });
+  };
+
+  injectLiveGraphics();
 });

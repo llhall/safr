@@ -62,3 +62,12 @@ The included forms intentionally **do not transmit information**. They display a
 ## Custom domain
 
 Do not add a `CNAME` file until the final domain is known. After the GitHub Pages site works, add the domain in **Settings → Pages → Custom domain**, then update DNS with the domain provider.
+
+
+## Live graphics update
+
+The website now includes a reusable looping background video stored at:
+
+- `assets/safr-live-graphic.mp4`
+
+The script automatically injects this video into the major dark sections, page hero areas, newsletter blocks, support strip, and footer. Replace this MP4 later if you want a different motion background without rebuilding the page structure.
