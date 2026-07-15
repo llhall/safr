@@ -81,3 +81,8 @@ The script automatically injects this video into the major dark sections, page h
 - Replaced the short dark motion treatment with a brighter 30-second forward/reverse looping video.
 - Applied the motion background to the homepage hero and the top banner on every interior page.
 - Added a still poster fallback and reduced-motion support.
+
+
+## Homepage motion update
+
+The looping motion background now appears only in the homepage hero. Interior page banners use a static black/red graphic background. The homepage video background spans the full browser width.

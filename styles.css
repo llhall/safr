@@ -440,3 +440,46 @@ input:focus, select:focus, textarea:focus, button:focus, a:focus {
 .page-hero::before,
 .hero::after,
 .page-hero::after { z-index: 1; }
+
+
+/* July 2026 update: motion appears only on the homepage hero */
+.page-hero {
+  background-image: none;
+  background-color: #08090a;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(239,52,45,.16), transparent 24%),
+    linear-gradient(120deg, #070707 0%, #151719 56%, #090a0b 100%);
+}
+
+.page-hero::after {
+  display: none;
+}
+
+.home-hero {
+  width: 100%;
+  max-width: none;
+}
+
+.home-hero .section-video-bg {
+  left: 50%;
+  right: auto;
+  width: 100vw;
+  min-width: 100vw;
+  transform: translateX(-50%);
+}
+
+.home-hero .section-video-bg video {
+  width: 100vw;
+  min-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+@supports (width: 100dvw) {
+  .home-hero .section-video-bg,
+  .home-hero .section-video-bg video {
+    width: 100dvw;
+    min-width: 100dvw;
+  }
+}

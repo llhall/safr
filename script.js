@@ -42,9 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  document.querySelectorAll(".hero, .page-hero").forEach((section) => {
-    if (section.querySelector(".section-video-bg")) return;
-
+  const homeHero = document.querySelector("body.home .home-hero");
+  if (homeHero && !homeHero.querySelector(".section-video-bg")) {
     const background = document.createElement("div");
     background.className = "section-video-bg";
     background.setAttribute("aria-hidden", "true");
@@ -68,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.createElement("div");
     overlay.className = "section-video-overlay";
     background.appendChild(overlay);
-    section.prepend(background);
-  });
+    homeHero.prepend(background);
+  }
 
   if (!reducedMotion && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
