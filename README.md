@@ -71,3 +71,13 @@ The website now includes a reusable looping background video stored at:
 - `assets/safr-live-graphic.mp4`
 
 The script automatically injects this video into the major dark sections, page hero areas, newsletter blocks, support strip, and footer. Replace this MP4 later if you want a different motion background without rebuilding the page structure.
+
+
+## July 2026 visual revision
+
+- Rebuilt the homepage into a shorter, more concise layout.
+- Reduced the size of the main “First to respond. Last to ask for help.” heading.
+- Added compact quick-action links, program cards, statistics, alliance ticker, newsletter, and support panels.
+- Replaced the short dark motion treatment with a brighter 30-second forward/reverse looping video.
+- Applied the motion background to the homepage hero and the top banner on every interior page.
+- Added a still poster fallback and reduced-motion support.

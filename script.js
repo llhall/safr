@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const currentFile = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".site-nav a").forEach((link) => {
-    const linkFile = link.getAttribute("href");
-    if (linkFile === currentFile) {
+    if (link.getAttribute("href") === currentFile) {
       link.setAttribute("aria-current", "page");
     }
   });
@@ -36,57 +35,54 @@ document.addEventListener("DOMContentLoaded", () => {
       const status = form.querySelector(".form-status");
       const formName = form.dataset.formName || "website";
       if (status) {
-        status.textContent =
-          `This ${formName} form is included for design review but is not connected to a submission service yet.`;
+        status.textContent = `This ${formName} form is designed but is not connected to a submission service yet.`;
       }
     });
   });
 
-  const injectLiveGraphics = () => {
-    const selectors = [
-      ".hero",
-      ".page-hero",
-      ".dark-section",
-      ".newsletter-section",
-      ".support-strip",
-      ".site-footer"
-    ];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".hero, .page-hero").forEach((section) => {
+    if (section.querySelector(".section-video-bg")) return;
 
-    selectors.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((section) => {
-        if (section.querySelector(".section-video-bg")) return;
-        section.classList.add("has-live-graphic");
+    const background = document.createElement("div");
+    background.className = "section-video-bg";
+    background.setAttribute("aria-hidden", "true");
 
-        const bg = document.createElement("div");
-        bg.className = "section-video-bg";
-        bg.setAttribute("aria-hidden", "true");
+    if (!reducedMotion) {
+      const video = document.createElement("video");
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.poster = "assets/safr-live-poster.jpg";
+      video.setAttribute("preload", "auto");
 
-        if (!reducedMotion) {
-          const video = document.createElement("video");
-          video.autoplay = true;
-          video.muted = true;
-          video.loop = true;
-          video.playsInline = true;
-          video.setAttribute("playsinline", "");
-          video.setAttribute("preload", "auto");
+      const source = document.createElement("source");
+      source.src = "assets/safr-live-graphic.mp4";
+      source.type = "video/mp4";
+      video.appendChild(source);
+      background.appendChild(video);
+    }
 
-          const source = document.createElement("source");
-          source.src = "assets/safr-live-graphic.mp4";
-          source.type = "video/mp4";
-          video.appendChild(source);
-          bg.appendChild(video);
+    const overlay = document.createElement("div");
+    overlay.className = "section-video-overlay";
+    background.appendChild(overlay);
+    section.prepend(background);
+  });
+
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         }
-
-        const overlay = document.createElement("div");
-        overlay.className = "section-video-overlay";
-        bg.appendChild(overlay);
-
-        section.prepend(bg);
       });
-    });
-  };
+    }, { threshold: 0.12 });
 
-  injectLiveGraphics();
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  } else {
+    document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+  }
 });
