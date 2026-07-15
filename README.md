@@ -1,0 +1,64 @@
+# SAFR Website
+
+Static GitHub Pages website for the **Suncoast Alliance for First Responders (SAFR)** and the **First Responder Hope Line**.
+
+## Included pages
+
+- Home
+- About Us
+- People & Alliance
+- Our Work
+- Get Involved
+- Support
+- News
+- Resources
+- Get Help
+- Contact
+- Privacy
+- Accessibility
+- Custom 404 page
+
+## Publish on GitHub Pages
+
+1. Create a new GitHub repository.
+2. Upload **the contents of this folder** to the root of the repository.
+3. Commit the files to the `main` branch.
+4. Open **Settings → Pages**.
+5. Under **Build and deployment**, choose **Deploy from a branch**.
+6. Select the `main` branch and the `/ (root)` folder.
+7. Save and wait for GitHub to publish the site.
+
+The temporary address will normally be:
+
+`https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME/`
+
+## Important before public launch
+
+The visual website is ready for GitHub Pages, but the following items still need to be connected or confirmed:
+
+- Constant Contact newsletter form
+- General contact form
+- Get Involved form
+- Nonurgent Get Help form
+- Privacy and data-handling process for sensitive information
+- Public administrative email, address, and social media links
+- Campaign video link or file
+- Current alliance membership and permission to display logos
+- Legal donation recipient, tax language, and payment platform
+- Formal mission, vision, history, governance, and leadership profiles
+- Review of statistics and source wording
+- Review of crisis, domestic-violence, confidentiality, and response-time language
+
+The included forms intentionally **do not transmit information**. They display a message explaining that the form connection is pending.
+
+## Main files
+
+- `index.html` — homepage
+- `styles.css` — all visual styling
+- `script.js` — mobile menu, active navigation, current year, and draft-form notices
+- `assets/first-responder-hope-line-logo.png` — supplied logo
+- `assets/favicon.svg` — browser icon
+
+## Custom domain
+
+Do not add a `CNAME` file until the final domain is known. After the GitHub Pages site works, add the domain in **Settings → Pages → Custom domain**, then update DNS with the domain provider.
