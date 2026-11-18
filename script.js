@@ -40,48 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const homeHero = document.querySelector("body.home .home-hero");
-  if (homeHero && !homeHero.querySelector(".section-video-bg")) {
-    const background = document.createElement("div");
-    background.className = "section-video-bg";
-    background.setAttribute("aria-hidden", "true");
-
-    if (!reducedMotion) {
-      const video = document.createElement("video");
-      video.autoplay = true;
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.poster = "assets/safr-live-poster.jpg";
-      video.setAttribute("preload", "auto");
-
-      const source = document.createElement("source");
-      source.src = "assets/safr-live-graphic.mp4";
-      source.type = "video/mp4";
-      video.appendChild(source);
-      background.appendChild(video);
-    }
-
-    const overlay = document.createElement("div");
-    overlay.className = "section-video-overlay";
-    background.appendChild(overlay);
-    homeHero.prepend(background);
-  }
-
-  if (!reducedMotion && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-  } else {
-    document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
-  }
 });

@@ -1,88 +1,37 @@
-# SAFR Website
+# Sunshine Alliance for First Responders
 
-Static GitHub Pages website for the **Suncoast Alliance for First Responders (SAFR)** and the **First Responder Hope Line**.
+Five-page, build-free GitHub Pages website. Deep blue, polished brass and badge-inspired accents. The menu is visibly listed on the left, including on phones. No flashing lights or moving people.
 
-## Included pages
+## Pages
+- index.html: Home, overview, research context and newsletter status.
+- about.html: About, mission, alliance work, privacy draft and accessibility information.
+- people.html: Executive Board, Board Members, Meg Ross portrait and alliance organizations.
+- support.html: Financial/organizational support, involvement and general contact previews.
+- resources.html: Resource categories, Hope Line and nonurgent-help form preview.
 
-- Home
-- About Us
-- People & Alliance
-- Our Work
-- Get Involved
-- Support
-- News
-- Resources
-- Get Help
-- Contact
-- Privacy
-- Accessibility
-- Custom 404 page
-
-## Publish on GitHub Pages
-
-1. Create a new GitHub repository.
-2. Upload **the contents of this folder** to the root of the repository.
-3. Commit the files to the `main` branch.
-4. Open **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**.
-6. Select the `main` branch and the `/ (root)` folder.
-7. Save and wait for GitHub to publish the site.
-
-The temporary address will normally be:
-
-`https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME/`
+## Upload to llhall/safr
+1. Download a backup of the existing repository before making changes. Ideally, create a new branch first so the changes can be reviewed before merging into the branch that publishes the website.
+2. Extract this ZIP on your computer. Upload the CONTENTS to the root of the `safr` repository. `index.html` must sit at the repository root, not inside a `safr-github-files` or `dist` folder. Keep the `assets` folder and its files together. Do not upload only the ZIP itself.
+3. Replace the existing five same-named HTML files and `script.js`; add/replace `alliance.css` and the included assets. Include `.nojekyll` if your upload method shows hidden files. This plain HTML site does not require Node, npm, a build command or a server-side application.
+4. To leave exactly five pages, remove these obsolete root files after backing them up: `our-work.html`, `get-help.html`, `get-involved.html`, `contact.html`, `news.html`, `privacy.html`, `accessibility.html`. Their relevant material has been consolidated into the five pages. Old direct links to removed filenames will no longer work; if you need those old URLs preserved, plan redirects before deleting them.
+5. Old stylesheets `styles.css`, `sunshine.css`, `institutional.css` and old motion media are not used by this package. They can be removed after backup. Do not delete unrelated repository configuration, a custom-domain CNAME, workflows or files you still need.
+6. Confirm the repository's existing Pages configuration publishes the branch/root you updated. Commit or merge when ready to make these changes visible on the existing public site. The expected homepage is https://llhall.github.io/safr/ . Refresh after GitHub finishes publishing.
+7. Check all five navigation links, phone/mail links, images and a narrow mobile window on the published website.
 
 ## Important before public launch
+- These files are a review-stage design, not a fully operational intake/donation system. The top review banner is informational ONLY. It does not restrict access. GitHub Pages publication can make the content publicly accessible.
+- Contact, partnership and nonurgent-help forms are deliberately disabled. They do not submit or store responses. Do not simply enable the fields: connect and test an approved form service, routing, privacy/security process and response handling first.
+- Newsletter signup is not connected to Constant Contact. Donation/payment functions are not connected. No payment or tax-deductibility claims have been invented.
+- Board names, supplied email addresses and Meg Ross's portrait are included. Confirm these are approved for public display before committing to the publishing branch.
+- Review retained historical research/statistics, current program/service-area wording, partner participation and privacy/legal content. Draft placeholders identify information not yet supplied. In particular, do not treat the draft privacy section as a final privacy policy.
+- The page banner says PRIVATE DESIGN REVIEW because this is the review version. Before an approved public launch, remove the `.review-strip` element from each HTML file and resolve other draft notices as appropriate. Removing a banner does not activate forms or finalize content.
+- The provided Sunshine Alliance logo is unchanged. `assets/favicon.svg` is a simple sun icon. All required visual assets are included; there are no remote font or script dependencies.
 
-The visual website is ready for GitHub Pages, but the following items still need to be connected or confirmed:
+## Local preview
+Open `index.html` in a browser after extraction, or serve this folder using your usual local static web server. Navigation and asset paths are relative, so the files work under the `/safr/` GitHub Pages path.
 
-- Constant Contact newsletter form
-- General contact form
-- Get Involved form
-- Nonurgent Get Help form
-- Privacy and data-handling process for sensitive information
-- Public administrative email, address, and social media links
-- Campaign video link or file
-- Current alliance membership and permission to display logos
-- Legal donation recipient, tax language, and payment platform
-- Formal mission, vision, history, governance, and leadership profiles
-- Review of statistics and source wording
-- Review of crisis, domestic-violence, confidentiality, and response-time language
+## Editing
+Edit page text in the corresponding HTML file. `alliance.css` controls the shared visual design and responsive layout. `script.js` marks the active page, updates the year and prevents prototype forms from submitting. Historical menu code in the script is inert because the five-page layout has no menu toggle.
 
-The included forms intentionally **do not transmit information**. They display a message explaining that the form connection is pending.
-
-## Main files
-
-- `index.html` — homepage
-- `styles.css` — all visual styling
-- `script.js` — mobile menu, active navigation, current year, and draft-form notices
-- `assets/first-responder-hope-line-logo.png` — supplied logo
-- `assets/favicon.svg` — browser icon
-
-## Custom domain
-
-Do not add a `CNAME` file until the final domain is known. After the GitHub Pages site works, add the domain in **Settings → Pages → Custom domain**, then update DNS with the domain provider.
-
-
-## Live graphics update
-
-The website now includes a reusable looping background video stored at:
-
-- `assets/safr-live-graphic.mp4`
-
-The script automatically injects this video into the major dark sections, page hero areas, newsletter blocks, support strip, and footer. Replace this MP4 later if you want a different motion background without rebuilding the page structure.
-
-
-## July 2026 visual revision
-
-- Rebuilt the homepage into a shorter, more concise layout.
-- Reduced the size of the main “First to respond. Last to ask for help.” heading.
-- Added compact quick-action links, program cards, statistics, alliance ticker, newsletter, and support panels.
-- Replaced the short dark motion treatment with a brighter 30-second forward/reverse looping video.
-- Applied the motion background to the homepage hero and the top banner on every interior page.
-- Added a still poster fallback and reduced-motion support.
-
-
-## Homepage motion update
-
-The looping motion background now appears only in the homepage hero. Interior page banners use a static black/red graphic background. The homepage video background spans the full browser width.
+## Verified
+Desktop and phone-size layouts inspected. Five-page navigation tested with visible left menu, no horizontal overflow at the tested phone width, and no video. Local asset paths and section anchors validated. All intake fields remain disabled. This package contains no credentials, Site hosting configuration or Git history.
