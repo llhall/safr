@@ -4,7 +4,7 @@ Five-page, build-free GitHub Pages website. Deep blue, polished brass and badge-
 
 ## Pages
 - index.html: Home, overview, research context and newsletter status.
-- about.html: About, mission, alliance work, privacy draft and accessibility information.
+- about.html: About, mission and alliance work.
 - people.html: Executive Board, Board Members, Meg Ross portrait and alliance organizations.
 - support.html: Financial/organizational support, involvement and general contact previews.
 - resources.html: Resource categories, Hope Line and nonurgent-help form preview.
@@ -23,7 +23,7 @@ Five-page, build-free GitHub Pages website. Deep blue, polished brass and badge-
 - Contact, partnership and nonurgent-help forms are deliberately disabled. They do not submit or store responses. Do not simply enable the fields: connect and test an approved form service, routing, privacy/security process and response handling first.
 - Newsletter signup is not connected to Constant Contact. Donation/payment functions are not connected. No payment or tax-deductibility claims have been invented.
 - Board names, supplied email addresses and Meg Ross's portrait are included. Confirm these are approved for public display before committing to the publishing branch.
-- Review retained historical research/statistics, current program/service-area wording and partner participation. Draft placeholders identify information not yet supplied. Privacy and Accessibility footer links were removed only from Support. The draft sections on About remain; finalize appropriate policies before activating data collection.
+- Review retained historical research/statistics, current program/service-area wording and partner participation. Draft placeholders identify information not yet supplied. The requested draft policy sections and their navigation links have been removed throughout the website. Finalize appropriate policies before activating data collection.
 - The page banner says PRIVATE DESIGN REVIEW because this is the review version. Before an approved public launch, remove the `.review-strip` element from each HTML file and resolve other draft notices as appropriate. Removing a banner does not activate forms or finalize content.
 - The provided Sunshine Alliance logo is unchanged. `assets/favicon.svg` is a simple sun icon. All required visual assets are included; there are no remote font or script dependencies.
 
